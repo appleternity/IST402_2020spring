@@ -1,66 +1,66 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Sample Web Page</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
 
 
-    <!-- CSS -->
-    <style type="text/css">
-        img {
-            max-width:300px;
-            max-height:240px;
-        }
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-        .my_highlight {
-            background-color: yellow;
-            color: red;
-            font-weight: bold;
-        }
-        h1 {
-            text-align: center;
-        }
 
-        .instruction {
-            margin-top: 30px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(30, 30, 30, .5);
-            padding: 15px;
-            margin-bottom: 20px;
-        }
+<!-- CSS -->
+<style type="text/css">
+    img {
+        max-width:300px;
+        max-height:240px;
+    }
 
-        #story_block {
-            white-space: pre-line;
-            max-height: 500px;
-            overflow-y: scroll;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            padding: 10px;
-        }
-        .answer {
-            padding:15px;
-            margin-bottom: 30px;
-        }
-        textarea {
-            resize: none;
-            width: 100%;
-            height: 120px;
-            border-radius: 5px;
-        }
-        input[type="text"] {
-            width:100%;
-            border-radius: 5px;
-        }
-    </style>
+    .my_highlight {
+        background-color: yellow;
+        color: red;
+        font-weight: bold;
+    }
+    h1 {
+        text-align: center;
+    }
 
-</head>
+    .instruction {
+        margin-top: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(30, 30, 30, .5);
+        padding: 15px;
+        margin-bottom: 20px;
+    }
 
-<body class="container">
+    #story_block {
+        white-space: pre-line;
+        max-height: 500px;
+        overflow-y: scroll;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 10px;
+    }
+    .answer {
+        padding:15px;
+        margin-bottom: 30px;
+    }
+    textarea {
+        resize: none;
+        width: 100%;
+        height: 120px;
+        border-radius: 5px;
+    }
+    input[type="text"] {
+        width:100%;
+        border-radius: 5px;
+    }
+</style>
 
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
     <!-- Instruction -->
     <div class="instruction">
         <h1> Instruction </h1>
@@ -591,18 +591,16 @@ For you see… He did, indeed, have a hacked team. But nobody said he couldn’t
             </pre>
 
 
-
             <h5>Character</h5>
-            <input type="text" class="form-control" name="character" required>
+            <crowd-input type="text" name="character" required> </crowd-input>
 
             <h5>Personality</h5>
-            <textarea name="description" class="form-control" min-length="30" required></textarea>
+            <crowd-text-area name="description" min-length="30" required char-counter></crowd-text-area>
 
-            <br>
-            <input type="submit" class="btn btn-primary btn-lg btn-block">
+            <!--<br>-->
+            <!--<crowd-input type="submit" name="submit">-->
+            <crowd-button form-action="submit">Submit</crowd-button>
         </form>
     </div>
-
-</body>
-
-</html>
+    
+</crowd-form>
