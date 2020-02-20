@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd">
-    <ExternalURL>{{url}}</ExternalURL>
-    <FrameHeight>{{height}}</FrameHeight>
+    <ExternalURL>https://appleternity.github.io/IST402_2020spring/assignment_2-2/char_annotation_cli.html</ExternalURL>
+    <FrameHeight>1000</FrameHeight>
 </ExternalQuestion>
